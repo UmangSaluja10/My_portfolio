@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/43290fa92d.js" crossorigin="anonymous"></script>
+    <title>Umang's Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #8892b0; /* New font color */
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f2027, #2c5364);
+            padding: 40px;
+            text-align: center;
+            color: #ccd6f6; /* Light text color for header */
+            position: sticky;
+            top: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: slideDown 1.5s ease-out;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .section {
+            margin: 40px 0;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .section h2 {
+            text-align: center;
+            color: #ccd6f6; /* Subheading color */
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .card {
+            background-color: #1f2a48; /* Dark background for cards */
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .card video{
+            width: 100%;
+            border-bottom: 3px solid #8892b0;
+            transition: opacity 0.4s ease-in-out;
+    
+        }
+        .card img {
+            width: 100%;
+            border-bottom: 3px solid #8892b0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .card:hover img {
+            opacity: 0.75;
+        }
+
+        .card-content {
+            padding: 20px;
+            color: #ccd6f6; /* Text color inside the cards */
+            transition: transform 0.3s ease, color 0.4s ease;
+        }
+
+        .card-content:hover {
+            transform: translateY(-10px);
+            color: #f39c12;
+        }
+
+        .animated-button {
+            display: inline-block;
+            padding: 14px 30px;
+            margin: 20px auto;
+            font-size: 1.5rem;
+            color: #0a192f;
+            background: #f39c12; 
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.4s ease, transform 0.3s ease;
+        }
+
+        .animated-button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #fc466b, #3f5efb);
+        }
+
+        /* Keyframe Animations */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInAlt {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .floating-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            animation: fadeInAlt 1.5s ease-out;
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #f39c12, #f1c40f);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            color: #fff;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .icon a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .icon:hover {
+            transform: rotate(360deg) scale(1.25);
+            background: linear-gradient(45deg, #fc466b, #3f5efb);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline {
+            border-left: 3px solid #8892b0; /* Timeline border color */
+            padding-left: 20px;
+            margin: 40px 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeInAlt 1.2s ease-out forwards;
+        }
+
+        .timeline-item h3 {
+            margin: 0;
+            color: #ccd6f6;
+        }
+
+        .timeline-item p {
+            margin: 5px 0;
+            color: #8892b0; /* Text color of timeline description */
+        }
+
+        .about-me {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            margin: 40px 0;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        .about-me img {
+            border-radius: 50%;
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border: 5px solid #f39c12;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .about-me h3 {
+            color: #ccd6f6;
+            margin: 10px 0;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .about-me p {
+            color: #8892b0;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Umang's Portfolio</h1>
+    </header>
+
+    <div class="content">
+       
+        <div class="section about-me">
+            <img src="essentials/cr.png" alt="Profile Photo">
+            <h3>Umang Saluja</h3>
+            <p>Hi, I'm Umang Saluja, currently studying at KIET Group of Institutions. I am a member of the Innogeeks club in the Android domain and I am also learning web development alongside my studies. At the moment, I am exploring the opportunities available through college and I am eager to learn new skills to improve myself.</p>
+        </div>
+
+     
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="card">
+                <video autoplay height="600px" width="auto" controls="controls">
+                    <source src="vid-essentials/GradeBoost.mp4" type="video/mp4">
+                </video>
+                <div class="card-content">
+                    <h3>GradeBoost</h3>
+                    <p>GradeBoost is a comprehensive educational app designed for CBSE Class 10th and 12th students. With a user-friendly interface and a focus on enhancing academic performance, GradeBoost offers a wide range of features to support students in their learning journey. The app includes detailed solved exercises, practice sheets for key topics, and sample papers that replicate the real exam format to help students prepare effectively. Additionally, the built-in calculator allows for quick and easy calculations, making study sessions more efficient.
+
+                        GradeBoost aims to simplify complex concepts and provide students with the resources they need to succeed in their exams. Whether it's practicing important questions or preparing for finals, the app offers everything a student needs to excel academically. Its easy-to-navigate design ensures a seamless experience, while its comprehensive content covers everything required to boost student performance.
+                        
+                        GradeBoost is the perfect study companion, combining essential learning tools in one place to empower students in their academic journey.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="essentials/Screenshot (15).png" alt="Project Image">
+                <div class="card-content">
+                    <h3>Semester Project</h3>
+                    <p>Nature's Pulse is a serene and informative blogging platform dedicated to exploring the beauty, intricacies, and wonders of the natural world. The website is designed to be a space where nature enthusiasts, environmentalists, and curious minds can delve into various topics about the environment, wildlife, sustainability, and outdoor adventures.
+
+                        Through insightful articles, vibrant photography, and engaging stories, Nature's Pulse brings the essence of nature directly to its readers. From detailed explorations of forest ecosystems and mountain ranges to discussions on environmental conservation efforts and the importance of preserving biodiversity, this platform aims to raise awareness and inspire action towards protecting our planet.
+                        
+                        Whether it’s sharing the awe-inspiring beauty of wildlife, revealing the hidden secrets of forests, or offering tips on how to live a more eco-friendly lifestyle, Nature's Pulse encourages readers to connect with the environment and feel its pulse through every article. It’s a blog that aims to unite readers with the healing and captivating power of the natural world.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>B.Tech in Computer Science</h3>
+                    <p>KIET Group of Institutions, Present</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>High-School</h3>
+                    <p>St.Thomas School, 2022</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Secured the first prize in the Project Presentation Competition organized by the Department of Applied Science in collaboration with ISTE Faculty. Recognized for innovative ideas and outstanding performance, the achievement was celebrated with a trophy and certificate, awarded by esteemed authorities. This milestone highlights our dedication to excellence and teamwork in academic pursuits.</li>
+            
+                <li>Proudly secured a bronze medal in the shot put event during an intra-school competition. This accomplishment reflects a combination of physical strength, strategic technique, and determination. Participating in such a competitive sporting event not only highlights athletic abilities but also demonstrates the value of perseverance, hard work, and a commitment to personal growth beyond academics</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Contact</h2>
+            <div class="floating-icons">
+                <div class="icon"><a href="https://github.com/UmangSaluja10"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <div class="icon"><a href="https://www.linkedin.com/in/umang-saluja-295294322"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <div class="icon"><a href="https://www.instagram.com/hanuman_devotee1001/profilecard/?igsh=b21nOGFkNnlia2tt">
+                    <i class="fa-brands fa-instagram"></i></a></div>
+            </div>
+            <div class="animated-button">Contact Me</div>
+        </div>
+    </div>
+</body>
+</html>
